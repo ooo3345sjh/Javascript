@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 객체의 메서드와 속성(3)</title>
+    <script>
+        var userEmail = prompt("당신의 이메일 주소는?", "");
+        var arrUrl = [".co.kr", ".com", ".net", ".or.kr", "go.kr"];
+
+        var check1 = false;
+        var check2 = false;
+
+        if(userEmail.indexOf("@")!= -1) {check1 = true;} //이메일 유효성을 검사하여 "@"를 정상적으로 작성했으면 check1에 true를 저장합니다.
+
+        for(var i=0; i<arrUrl.length; i++){
+            if(userEmail.indexOf(arrUrl[i]) != -1) 
+            check2 = true; //입력한 이메일과 arrUrl의 단어를 하나씩 비교하여 1개의 단어라도 일치하면 check2에 true를 저장합니다.
+        }
+        
+        if(check1 && check2){
+            document.write(userEmail);
+        } else {
+            alert("이메일 형식이 잘못되었습니다.");
+            location.reload();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호이스팅</title>
+    <script>
+        /* 
+        함수 선언문의 경우, 런타임 이전에 자바스크립트 엔진에서 먼저 실행되어, 함수 자체를 호이스팅 시킬 수 있다. 반면, 
+        함수 표현식은 위에서 봤던 변수 호이스팅과 같이 런타임 이전에 해당 값을 undefined로 초기화만 시키고, 런타임에서 
+        해당 함수 표현식이 할당되어 그때 객체가 된다.
+        (https://www.howdy-mj.me/javascript/var-let-const/)
+        */
+        var count = 0;
+
+        myFnc(); //함수 선언전에 실행 가능.
+
+        //함수 선언문 또는 일반 함수 정의 방식
+        function myFnc(){
+            count++;
+            document.write("hello" + count, "<br>");
+        }
+
+        myFnc();
+        //theFnc(); 오류 발생
+
+        //함수 표현식 또는 익명 함수 선언 참조 방식(오류 발생)
+        var theFnc = function(){
+            count++;
+            document.write("bye" + count, "<br>");
+        }
+
+        theFnc();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

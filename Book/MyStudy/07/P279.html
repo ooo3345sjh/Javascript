@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> on() 메서드의 라이브 이벤트 등록 방식 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	// 이벤트를 등록하고 class값을 생성하면 이벤트가 정상적으로 등록되지 않습니다.
+	$(".btn_1.on").on("mouseover focus", function(){
+		alert("HELLO!");
+	});
+	$(".btn_1").addClass("on");
+	
+	
+	// 라이브 이벤트를 등록 방식을 이벤트를 드옥한 다음 class 값을 생성하면 이벤트가 정상적으로 등록됩니다.
+	$(document).on("mouseover focus", ".btn_2.on", function(){
+		alert("WELCOME!");
+	});
+	$(".btn_2").addClass("on");
+});
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<p><button class="btn_1">버튼1</button></p>
+		<p><button class="btn_2">버튼2</button></p>
+	</div>
+</body>
+</html>

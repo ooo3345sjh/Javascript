@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매개변수가 있는 함수 정의문(1)</title>
+    <script>
+        const rightId = "korea";
+        const rightPw = "1234";
+        var a = 1;
+        function login(id, pw) {
+            if (id == rightId) {
+                if (pw == rightPw) {
+                    document.write(id + "님 방문을 환영합니다.");
+                } else {
+                    alert("잘못된 비밀번호입니다.");
+                }
+            } else {
+                alert("존재하지 않는 아이디입니다.");
+            }
+
+        }
+
+        const userId = prompt("아이디를 입력하세요.");
+        const userPw = prompt("패스워드를 입력하세요.");
+
+        login(userId, userPw);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

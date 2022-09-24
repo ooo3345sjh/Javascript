@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> $(this) 선택자 / index() 인덱스 반환 메서드 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	$(".menuWrap_1 a").on("click", function(e){
+		e.preventDefault();
+
+		$(".menuWrap_1 a").css({"background":"yellow"});
+		$(this).css({"background":"#f00"});
+	})
+
+	$(".menuWrap_2 a").on("click", function(e){
+		e.preventDefault();
+
+		$(".menuWrap_2 a").css({"background":"orange"});
+
+		var idx = $(".menuWrap_2 a").index(this);
+
+		$(".menuWrap_2 a").eq(idx).css({"background":"#0ff"});
+
+		$(".idxNum").text(idx);
+	})
+
+});
+</script>
+</head>
+<body>
+<h2>$(this)</h2>
+<ul class="menuWrap_1">
+				<li><a href="#">메뉴1</a></li>
+				<li><a href="#">메뉴2</a></li>
+				<li><a href="#">메뉴3</a></li>
+</ul>
+<h2>Index( )</h2>   
+<ul class="menuWrap_2">
+				<li><a href="#">메뉴4</a></li>
+				<li><a href="#">메뉴5</a></li>
+				<li><a href="#">메뉴6</a></li>
+</ul>
+<p class="idxNum"></p>
+</body>
+</html>

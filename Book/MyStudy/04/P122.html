@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window객체 - setTimeout()/clearTimeout()</title>
+    <script>
+        var addNum = 0;
+        var auto = setTimeout(function bar() { //5초 후에 코드를 한번 실행한뒤, setTimeout()메서드를 종료한다.
+            addNum++;
+            console.log(addNum);
+            setTimeout(bar, 5000); //자신을 다시 호출 함으로써 무한 반복된다. setInterval과 비슷
+        }, 5000);
+    </script>
+</head>
+
+<body>
+    <h1>setTimeout()메서드의 재귀함수와 setInterval()메서드의 차이</h1>
+    <blockquote cite="https://getchan.github.io/til/js_setTimeOut/">
+    <p>직전에 호출된 함수가 <b>끝나는 시점부터 특정 시간 이후로 함수를 호출하고 싶을 때</b>는 setTimeout() 함수를 사용해</br> 루프를 돌아야겠다. 그리고 다른 재귀 로직과 마찬가지로 적합한 탈출 조건을 부여해주어야 하겠다.</br></br>
+    반면 직전 호출 함수가 <b>호출되는 시점부터 특정 시간 이후로 함수를 호출하고 싶을 때</b>는 setInterval() 함수를 사용해</br> 루프를 돌아야겠다.</p>
+    </blockquote>
+</body>
+
+</html>

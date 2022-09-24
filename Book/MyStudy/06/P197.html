@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>only-child/slic(index) 선택자</title>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-migrate-1.4.1.min.js"></script>
+    <script>
+        $(function(){
+            $("#menu1 li").slice(1,3).css({"background":"#ff0"});
+
+            $("li:only-chuld").css({"backgroud":"#0ff"});
+        })
+    </script>
+</head>
+
+<body>
+    <h1>탐색 선택자</h1>
+    <ul id="menu1">
+        <li>내용1-1</li>
+        <li>내용1-2</li>
+        <li>내용1-3</li>
+        <li>내용1-4</li>
+    </ul>
+    <ul id="menu2">
+        <li>내용2-1</li>
+    </ul>
+</body>
+
+</html>

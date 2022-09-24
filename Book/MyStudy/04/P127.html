@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 객체 모델을 사용해 운영체제와 스크린 정보얻기</title>
+    <script>
+        var info = navigator.userAgent.toLocaleLowerCase();
+        var osImg = null;
+
+        if(info.indexOf("windows") != -1){
+            osImg = "windows.png";
+        } else if(info.indexOf("macintosh") != -1) {
+            osImg = "macintos.png";
+        } else if(info.indexOf("iphone") != -1) {
+            osImg = "iphone.png";
+        } else if(info.indexOf("android") != -1) {
+            osImg = "android.png";
+        }
+
+        document.write("<img src=\"images/" + osImg + "\">", "<br>");
+        var scr = screen;
+        var sc_w = scr.width;
+        var sc_h = scr.height;
+
+        document.write("모니터 해상도 너비:" + sc_w + "px", "<br>");
+        document.write("모니터 해상도 높이:" + sc_h + "px", "<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
