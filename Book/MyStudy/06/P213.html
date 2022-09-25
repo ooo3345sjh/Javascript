@@ -14,7 +14,7 @@
             $("#inner_1 p").filter(".txt2").css({
                 "background":"#f0f"
             });
-            $("#inner_2 p").filter(function(idx, obj){
+            $("#inner_2 p").filter(function(idx){
                 console.log(idx);
                 return idx % 2 == 0;
             })

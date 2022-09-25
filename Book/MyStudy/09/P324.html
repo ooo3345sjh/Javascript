@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML에 가상 회원 데이터(JSON)를 불러와 바인딩하기</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                url:"./js/MOCK_DATA.json",
+                dataType:"json",
+                success:function(data){
+                    if(data.length > 0){
+                        var tb = $("<table/>").append($("<tr/>").append(
+                            $("<td/>").text("id"),
+                            $("<td/>").text("first_num"),
+                            $("<td/>").text("last_num"),
+                            $("<td/>").text("email")
+                        ));
+                        
+                        for(var i in data){
+                            var $id = data[i].id;
+                            var $first_name = data[i].first_name;
+                            var $last_name = data[i].last_name;
+                            var $email = data[i].email;
+
+                            var row = $("<tr/>").append(
+                                $("<td/>").text($id),
+                                $("<td/>").text($first_name),
+                                $("<td/>").text($last_name),
+                                $("<td/>").text($email)
+                            );
+
+                            tb.append(row);
+                        }
+                        $(".wrap").append(tb);
+                    }
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap"></div>
+</body>
+</html>
