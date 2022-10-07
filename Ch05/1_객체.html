@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1_객체</title>
+    <!--
+        날짜 : 2022/10/07
+        이름 : 서정현
+        내용 : 자바스크립트 객체 생성하기
+    -->
+    <script src="./lib/Account.js"></script>
+</head>
+<body>
+    <h3>객체</h3>
+    <script>
+        // 사용자 정의 객체
+        let sonata = {
+            name: '소나타',
+            color: '흰색',
+            speed: 0,
+            speedUp: function(speed){
+                this.speed += speed;
+            },
+            speedDown: function(speed){
+                this.speed -= speed;
+            },
+            show: function(){
+                document.write("차량명 : " + this.name + "<br/>");
+                document.write("차량색 : " + this.color + "<br/>");
+                document.write("현재속도 : " + this.speed + "<br/>");
+            }
+        };
+
+        sonata.speedUp(100);
+        sonata.speedDown(40);
+        sonata.show();
+
+        // kb, 10000 입금, 2000 출금, 조회
+        let kb = new Account('kb', '101-11-1001' , '김유신', 0);
+        kb.deposit(10000);
+        kb.withdraw(2000);
+        kb.show();
+        // wr, 30000 입금, 7000 출금, 조회
+        let wr = new Account('wr', '101-11-1002' , '이순신', 0);
+        wr.deposit(30000);
+        wr.withdraw(1000);
+        wr.show();
+
+    </script>
+</body>
+</html,
