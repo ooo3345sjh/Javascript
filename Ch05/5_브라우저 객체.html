@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5_브라우저 객체</title>
+    <!--
+        날짜 : 2022/10/11
+        이름 : 서정현
+        내용 : 자바스크립트 브라우저 객체 실습하기
+
+        브라우저 객체
+         - window 객체로 document, location, history 등 포함
+         - location.href 기능으로 페이지 이동 
+    -->
+    <script>
+        // 브라우저 객체
+        // window.alert('기본대화상자');
+        // window.confirm('확인, 취소 대화상자');
+
+        window.document.write('브라우저 객체 출력<br/>');
+
+        function go(href){
+            location.href= href;
+        }
+
+        function next(){
+            history.forward();
+        }
+        
+        function prev(){
+            history.back();
+        }
+    </script>
+</head>
+<body>
+    <h3>브라우저 객체</h3>
+
+    <button onclick="go('https://naver.com')">네이버</button>
+    <button onclick="go('https://daum.net')">다음</button>
+    <button onclick="next()">앞으로</button>
+    <button onclick="prev()">뒤로</button>
+</body>
+</html>

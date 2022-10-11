@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_내장객체</title>
+    <!--
+        날짜 : 2022/10/11
+        이름 : 서정현
+        내용 : 자바스크립트 내장객체 실습하기
+    -->
+</head>
+<body>
+    <h3>자바스크립트 내장 객체</h3>    
+
+    <h4>Array</h4>
+    <script>
+        let arr1 = [1, 2, 3, 4, 5];
+        let arr2 = new Array(6, 7, 8, 9, 10);
+
+        let array1 = arr1.concat(arr2);
+        let array2 = arr1 + "," + arr2;
+        document.write('array1 : ' + array1 + "<br/>");
+        document.write('array2 : ' + array2 + "<br/>");
+
+        let joined = array1.join("-");
+        document.write("joined : " + joined + "<br/>");
+
+        let cities = ['서울', '대전', '대구', '부산', '광주'];
+        cities.forEach(function(item, index){
+            document.write("index : " + index + ", item : " + item + "<br/>");
+        });
+        cities.forEach((item, index) => {
+            document.write(`index : ${index}, item : ${item}<br/>`);
+        });
+
+        //map함수 새로운 배열을 반환한다.
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10];
+
+        let result1 = numbers.map((item)=>{
+            return item + 10;
+        });
+
+        let result2 = numbers.map(item => item*2);
+        let result3 = numbers.filter(item => item%2 == 0);
+        let result4 = numbers.map(item => item*2).filter(item => item>10);
+
+        document.write("result1 : " + result1 + "<br/>");
+        document.write("result2 : " + result2 + "<br/>");
+        document.write("result3 : " + result3 + "<br/>");
+        document.write("result4 : " + result4 + "<br/>");
+    </script>
+    
+    <h4>String</h4>
+    <script>
+        let str1 = new String('Hello Korea');
+        let str2 = 'Hello Korea';
+
+        let r1 = str1.length;
+        let r2 = str1.charAt(0);
+        let r3 = str1.indexOf('e');
+        let r4 = str2.lastIndexOf('e');
+        let r5 = str2.replace('Korea', "Busan");
+        let r6 = str2.substring(1, 5); // subStr()
+
+        document.write("r1 : " + r1 + "<br/>");
+        document.write("r2 : " + r2 + "<br/>");
+        document.write("r3 : " + r3 + "<br/>");
+        document.write("r4 : " + r4 + "<br/>");
+        document.write("r5 : " + r5 + "<br/>");
+        document.write("r6 : " + r6 + "<br/>");
+    </script>
+
+    <h4>Math</h4>
+    <script>
+        let rs1 = Math.abs(-5);
+        let rs2 = Math.sqrt(9);
+        let rs3 = Math.ceil(1.2);
+        let rs4 = Math.ceil(-1.9);
+        let rs5 = Math.floor(1.2);
+        let rs6 = Math.floor(1.9);
+        let rs7 = Math.round(1.2);
+        let rs8 = Math.round(1.9);
+
+        document.write("rs1 : " + rs1 + "<br/>");
+        document.write("rs2 : " + rs2 + "<br/>");
+        document.write("rs3 : " + rs3 + "<br/>");
+        document.write("rs4 : " + rs4 + "<br/>");
+        document.write("rs5 : " + rs5 + "<br/>");
+        document.write("rs6 : " + rs6 + "<br/>");
+        document.write("rs7 : " + rs7 + "<br/>");
+        document.write("rs8 : " + rs8 + "<br/>");
+
+        let num1 =  Math.random(); // 0 ~ 1 사이의 실수
+        let num2 = num1 * 10       // 0 ~ 10 사이의 실수 
+        let num3 = Math.ceil(num2) // 1 ~ 10 사이의 정수
+        let num4 = Math.ceil(Math.random() * 10) 
+
+        document.write("num1 : " + num1 + "<br/>");
+        document.write("num2 : " + num2 + "<br/>");
+        document.write("num3 : " + num3 + "<br/>");
+        document.write("num4 : " + num4 + "<br/>");
+    </script>
+
+    <h4>Date</h4>
+    <script>
+        let date = new Date();
+
+        let y = date.getFullYear();
+        let m = date.getMonth() + 1;
+        let d = date.getDate();
+
+        let h = date.getHours();
+        let min = date.getMinutes();
+        let seconds = date.getSeconds();
+
+        document.write(`${y}년 ${m}월 ${d}일 ${h}:${min}:${seconds}`);
+    </script>
+</body>
+</html>
