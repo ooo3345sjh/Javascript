@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONP로 교차 도메인 데이터(XML)불러오기</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(function(){
+            var href = "http://localhost/member.php?callback=myFnc";
+            $.ajax({
+                url:href,
+                dataType:"jsonp",
+            }).done(function myFnc(data){
+                console.log(data);
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자주 묻는 질문 플러그인 제작하기</title>
+    <style>
+        *{margin: 0;padding: 0;}
+	    li{list-style: none;}
+	    body{font: 14px Malgun Gothic,"맑은고딕",sans-serif;color: #555;}
+	    h1{font-size:1em;margin-bottom:10px;}
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(function(){
+            $.fn.extend({
+                faq: function(){
+                    var ts = $(this);
+                    
+                    // 해당 코드는 .faq 클래스를 배열로 하나씩 가져와서 각각 클래스에 해당하는 버튼에만
+                    // 적용이 된다.
+                    $.each(ts, function(i, o){
+                        console.log(o); //faq클래스 두개의 value를 가져오는 것을 확인할 수 있다. 
+                        $("button", o).on("click", tabmenu);
+                        function tabmenu(){
+                            if($(this).parent().next().is(":hidden")){
+                                $("li>div:visible", o).hide();
+                                $(this).parent().next().show();
+                            } else {
+                                $("li>div:visible", o).hide();
+                            }
+                        };
+                    });
+                    // 해당 주석은 위의 코드와 다르게 faq에 
+                    // 전체 적용 되어 하나의 버튼 클릭시 모든 버튼이 숨겨진다.(faq1, faq2 한번에 적용됨)
+                    /*  $("button", ts).on("click", tabmenu); 
+                      function tabmenu(){
+                          if($(this).parent().next().is(":hidden")){
+                              $("li>div:visible").hide();
+                              $(this).parent().next().show();
+                          } else {
+                              $("li>div:visible").hide();
+                          }
+                      };*/
+                }
+            });
+
+            $(".faq").faq();
+        });
+    </script>
+    <link rel="stylesheet" href="./css/faq.css">
+</head>
+<body>
+    <div class="faq">
+        <h1>질문 제목1</h1>
+        <ul>
+            <li>
+                <p><button>Q1. 자주 묻는 질문 내용?</button></p>
+                <div>
+                    <div class="cont">답변 내용1</div>
+                </div>
+            </li>
+            <li>
+                <p><button>Q2. 자주 묻는 질문 내용?</button></p>
+                <div>
+                    <div class="cont">답변 내용2</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="faq">
+        <h1>질문 제목2</h1>
+        <ul>
+            <li>
+                <p><button>Q1. 자주 묻는 질문 내용?</button></p>
+                <div>
+                    <div class="cont">답변 내용1</div>
+                </div>
+            </li>
+            <li>
+                <p><button>Q2. 자주 묻는 질문 내용?</button></p>
+                <div>
+                    <div class="cont">답변 내용2</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>

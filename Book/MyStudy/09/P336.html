@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONP로 교차 도메인 데이터(XML)불러와서 HTML문단 태그에 결합하기</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(function(){
+            var href = "http://localhost/member.php?callback=myFnc";
+            $.ajax({
+                url:href,
+                dataType:"jsonp",
+            }).done(function myTest(data){
+                if(data.length > 0) {
+                    var $table = $("<table>");
+                        data.forEach(function(o){
+                            $id = o.id;
+                            $name = o.name;
+                            $email = o.email;
+
+                            var trTag = $("<tr/>");
+                            trTag.append(
+                                $("<td/>").text($id),
+                                $("<td/>").text($name),
+                                $("<td/>").text($email)
+                            );
+
+                            $table.append(trTag);
+                        }); 
+
+                        $(".wrap").append($table);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap"></div>
+    
+</body>
+</html>

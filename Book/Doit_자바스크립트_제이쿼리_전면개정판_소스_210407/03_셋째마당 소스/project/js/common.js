@@ -21,6 +21,12 @@
 					deviceSize.mobile = deviceSize.mobile -  sc_w3;
 	}
 	//console.log(deviceSize.pc);
+	console.log("sc_w1" + " " + sc_w1);
+            console.log("sc_w2" + " " + sc_w2);
+            console.log("sc_w3" + " " + sc_w3);
+            console.log(deviceSize.pc);
+            console.log(deviceSize.tablet);
+            console.log(deviceSize.mobile);
 
 	$(win).on("resize", function() {
 		var w_size = $(win).width();
@@ -40,6 +46,8 @@
 			if(menu_pos >= 0) {
 							scrollShowHide("hidden");
 						}
+			console.log(menu_pos);
+
 		}
 	});
 
@@ -87,4 +95,4 @@
 						gnbleave();
 					});
 	});
-}(window, jQuery));
+})(window, jQuery);

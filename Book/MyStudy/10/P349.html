@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI 플러그인으로 드래그 레이어 창 만들기</title>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <style>
+        .layer_popup {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            cursor: move;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".layer_popup").draggable();
+        });
+    </script>
+</head>
+<body>
+    <div class="layer_popup">
+        <img src="./images/pic_1.jpg" alt="">
+    </div>
+    
+</body>
+</html>
