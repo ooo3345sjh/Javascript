@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2_jQuery 조작함수</title>
+    <!--
+        날짜 : 2022/10/12
+        이름 : 서정현
+        내용 : jQuery 조작함수 실습하기
+    -->
+    <style>
+
+        .box{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .red {background-color: red;}
+        .green {background-color: green;}
+        .blue {background-color: blue;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            // attr()
+            $('#img').attr({
+                'src':'./img/flower1.jpg',
+                'alt': '벚꽃'
+            });
+
+            // css()
+            $('.box1').css('width','100px').css('height','100px').css('border','1px solid black');
+            $('.box2').css({
+                'width':'100px',
+                'height':'100px',
+                'border':'1px solid black',
+                'background':'orange'
+            });
+
+            // text(), html()
+             let rs1 = $('#korea').text();
+             let rs2 = $('#korea').html();
+
+             console.log("rs1 : " + rs1);
+             console.log("rs2 : " + rs2);
+
+             $('p:eq(0)').text('<i>text 내용입니다.</i>');
+             $('p:eq(1)').html('<i>html 내용입니다.</i>');
+
+             $('section > div').eq(0).html($('#korea').html());
+             $('section > div').eq(1).html($('#korea').text());
+             $('section > div').eq(2).text($('#korea').html());
+             $('section > div').eq(3).text($('#korea').text());
+
+             // 추가, 이동 함수
+             let city = $('article > ul');
+
+             city.append('<li><i>제주도</i></li>');
+             city.prepend('<li><i>서울특별시</i></li>');
+
+             city.find('.gsd > li:eq(1)').appendTo('.city > li:eq(1) > ol');
+             city.find('.gsd > li:eq(1)').prependTo('.city > li:eq(5) > ol');
+             city.find('.gsd > li:eq(3)').prependTo('.city > li:eq(1) > ol');
+
+             // class 함수
+             $('.box:eq(0)').addClass('red');
+             $('.box:eq(1)').removeClass('green');
+             $('.box:eq(2)').toggleClass('blue');
+
+
+        });
+    </script>
+</head>
+<body>
+    <h3>jQuery 조작함수</h3>
+    
+    <h4>attr 함수</h4>
+    <img src="" alt="" id="img"/>
+
+    <h4>css 함수</h4>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+
+    <h4>text, html 함수</h4>
+    <ul id="korea">
+        <li>서울</li>
+        <li>대전</li>
+        <li>대구</li>
+        <li>부산</li>
+        <li>광주</li>
+    </ul>
+    <p></p>
+    <p></p>
+
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+    <h4>추가, 이동 함수</h4>
+    <article>
+        <ul class="city">
+            <li><i>경기도</i><ol></ol></li>
+            <li><i>충청도</i><ol></ol></li>
+            <li><i>강원도</i><ol></ol></li>
+            <li>
+                <i>경상도</i>
+                <ol class="gsd">
+                    <li>창원</li>
+                    <li>수원</li>
+                    <li>목포</li>
+                    <li>부여</li>
+                    <li>원주</li>
+                    <li>파주</li>
+                </ol>
+            </li>
+            <li><i>전라도</i><ol></ol></li>
+        </ul>
+    </article>
+
+
+    <h4>class 함수</h4>
+    <div class="box">box1</div>
+    <div class="box green">box2</div>
+    <div class="box blue">box3</div>
+    
+</body>
+</html>
