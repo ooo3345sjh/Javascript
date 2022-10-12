@@ -48,9 +48,11 @@
 		}
 	});
 
-	// 문서가 로딩될 때 resize 이벤트가 발생한다. 이때 설정한 중단점에 맞는 class 값을 생성한다.
 	$(function(){
+		// 문서가 로딩될 때 resize 이벤트가 발생한다. 이때 설정한 중단점에 맞는 class 값을 생성한다.
 		$(win).trigger("resize");
+
+		
 		$(document).on("mouseover focus", ".pc #gnb>ul>li>a, .tablet #gnb>ul>li>a", gnbPlay);
 
 		$(document).on("click", ".mobile #gnb>ul>li:not(.no-sub)>a", gnbPlay);
@@ -70,9 +72,9 @@
 			}
 		}
 
-		$(document).on("mouseleave", ".pc #pnb, .tablet $gnb", gnbleave);
+		$(document).on("mouseleave", ".pc #gnb, .tablet #gnb", gnbleave);
 		function gnbleave(){
-			$("#gnb ul ul:visible").slideDown(300);
+			$("#gnb ul ul:visible").slideUp(300);
 			$("#gnb>ul>li>a").removeClass("on");
 		}
 
@@ -86,5 +88,5 @@
 			scrollShowHide("scroll");
 			gnbleave();
 		});
-	})
+	});
 })(window, jQuery);

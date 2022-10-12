@@ -60,7 +60,9 @@
         let r3 = str1.indexOf('e');
         let r4 = str2.lastIndexOf('e');
         let r5 = str2.replace('Korea', "Busan");
-        let r6 = str2.substring(1, 5); // subStr()
+        let r6 = str2.substring(1, 5); 
+        let r7 = str2.substring(-3, 2); // 음수인 경우 0으로 인식함 
+        let r8 = str2.substr(-3, 2); // 음수인 경우 문자열의 뒤에서부터 시작 
 
         document.write("r1 : " + r1 + "<br/>");
         document.write("r2 : " + r2 + "<br/>");
@@ -68,6 +70,8 @@
         document.write("r4 : " + r4 + "<br/>");
         document.write("r5 : " + r5 + "<br/>");
         document.write("r6 : " + r6 + "<br/>");
+        document.write("r7 : " + r7 + "<br/>");
+        document.write("r8 : " + r8 + "<br/>");
     </script>
 
     <h4>Math</h4>
