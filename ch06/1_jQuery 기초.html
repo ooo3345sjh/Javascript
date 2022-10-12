@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1_JQuery 기초</title>
+    <!--
+        날짜 : 2022/10/12
+        이름 : 서정현
+        내용 : jQuery 실습하기
+    -->
+    <script src="./lib/jquery-3.6.1.min.js"></script>
+    <script>
+
+        // HTML 페이지의 로드 완료 후 실행
+        window.onload = function(){
+            let ul = document.getElementById('city');
+            let li = ul.getElementsByTagName('li');
+            li[0].style.color = 'red';
+        };
+        
+        
+        
+        // HTML 페이지 문서객체 준비 완료 후 실행
+        $(document).ready(function(){
+            $('#city > li:nth-child(4)').css('color','blue');
+        });
+    </script>
+</head>
+<body>
+    <h3>jQuery 기초</h3>
+
+    <ul id="city">
+        <li>서울</li>
+        <li>대전</li>
+        <li>대구</li>
+        <li>부산</li>
+        <li>광주</li>
+    </ul>
+</body>
+</html>
