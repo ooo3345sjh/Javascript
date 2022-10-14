@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2_jQuery 이벤트 함수</title>
+    <!--
+        날짜 : 2022/10/14
+        이름 : 서정현
+        내용 : jQuery 이벤트 함수 실습하기
+    -->
+    <style>
+        html{
+            width: 100%;
+            height: 2000px;
+        }
+        .box{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            font-weight: bold;
+        }
+
+        p:nth-of-type(2) {
+            position: fixed;
+            right: 40px;
+            top: 10px;
+        }
+
+        button{
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            // 마우스 이벤트
+
+            $('.box1').click(function(){
+                $(this).css('background', 'red');
+            });
+
+            $('.box2').mousedown(function(){
+                $(this).css('background', 'green');
+            });
+
+            $('.box3').mouseup(function(){
+                $(this).css('background', 'blue');
+            });
+
+            $('.box4').mouseover(function(){
+                $(this).css('background', 'orange');
+            });
+
+            $('.box5').mouseout(function(){
+                $(this).css('background', 'yellow');
+            });
+
+            $('.box6').hover(function(){
+                // mouseover
+                $(this).css('background','red');
+            },function(){
+                // mousedown
+                $(this).css('background','green');
+            });
+
+            $('.box').mousemove(function(){
+                console.log('mousemove!');
+            });
+
+            // 브라우저 이벤트
+            $(window).resize(function(){
+                let w = $(this).width();
+                let h = $(this).height();
+
+                $('p:eq(0) > span:eq(0)').text(w);
+                $('p:eq(0) > span:eq(1)').text(h);
+            });
+
+            $(window).trigger('resize');
+           
+            $(window).scroll(function(){
+                console.log('scroll!');
+
+                let top = $(this).scrollTop();
+                $('p:eq(1) > span').text(top);
+            });
+
+            $('button').click(function(){
+                $(window).scrollTop(0);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>jQuery 이벤트 함수</h3>
+
+    <h4>마우스 이벤트</h4>
+    <div class="box box1">click</div>
+    <div class="box box2">mouedown</div>
+    <div class="box box3">mouseup</div>
+    <div class="box box4">mouseover</div>
+    <div class="box box5">mouseout</div>
+    <div class="box box6">hover</div>
+    <div class="box box7">mousemove</div>
+
+    <h4>브라우저 이벤트</h4>
+    <p>
+        가로 : <span>0</span><br/>
+        세로 : <span>0</span><br/>
+    </p>
+
+    <p>스크롤바 위치 : <span>0</span></p>
+    <button>상단이동</button>
+</body>
+</html>

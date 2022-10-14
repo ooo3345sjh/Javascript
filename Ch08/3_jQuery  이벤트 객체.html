@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_jQuery 이벤트 객체</title>
+    <!--
+        날짜 : 2022/10/14
+        이름 : 서정현
+        내용 : jQuery 이벤트 객체 실습하기
+    -->
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+        }
+        .box3 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(".link3").click(function(e){
+                e.stopPropagation(); // 이벤트 전파 차단
+                alert('link3 클릭');
+            });
+
+            $(".link2").click(function(e){
+                e.preventDefault(); // 태그 기본 기능 해제
+                alert('link2 클릭');
+            });
+
+            $(".link1").click(function(e){
+                alert('link1 클릭');
+                return false; // 전파 차단, + 기본 동작 해제
+            });
+            
+            $(".box3").click(function(e){
+                alert('box3 클릭');
+                
+            });
+            
+            $(".box2").click(function(e){
+                alert('box2 클릭');
+                                
+            });
+            
+            $(".box1").click(function(e){
+                alert('box1 클릭');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>jQuery 이벤트 객체</h3>
+
+    <div class="box1">
+        <a href="https://naver.com" class="link1">네이버</a>
+        <div class="box2">
+            <a href="https://daum.net" class="link2">다음</a>
+            <div class="box3">
+                <a href="http://goolge.com" class="link3">구글</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
