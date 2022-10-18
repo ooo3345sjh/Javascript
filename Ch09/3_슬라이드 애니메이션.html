@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_슬라이드 애니메이션</title>
+    <!--
+        날짜 : 2022/10/18
+        이름 : 서정현
+        내용 : 슬라이드 애니메이션 실습하기
+    -->
+    <style>
+        section {
+            position: relative;
+            width: 280px;
+            height: 390px;
+            border: 1px solid red; 
+            overflow: hidden;
+        }
+        section > div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid blue;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .topDown > div:nth-child(1){left: 0; top: 0;}
+        .topDown > div:nth-child(2){left: 0; top: 100%;}
+        .topDown > div:nth-child(3){left: 0; top: 200%;}
+
+        .leftRight > div:nth-child(1){left: 0; top: 0;}
+        .leftRight > div:nth-child(2){left: 100%; top: 0;}
+        .leftRight > div:nth-child(3){left: 200%; top: 0;}
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+
+            let slides1 = $('.topDown > div');
+            let i = 0;
+            
+            setInterval(()=>{
+                slides1.eq(i).animate({'top':'-100%'}, 1000);
+                i++;
+                
+                if(i >=3 ) {
+                    i=0
+                };
+                slides1.eq(i).css('top','100%').animate({'top':'0'}, 1000);
+
+
+            }, 3000);
+
+            let slides2 = $('.leftRight > div');
+            let n = 0;
+            
+            setInterval(()=>{
+                slides2.eq(n).animate({'left':'-100%'}, 1000);
+                n++;
+                
+                if(n >=3 ) {
+                    n=0
+                };
+                slides2.eq(n).css('left','100%').animate({'left':'0'}, 1000);
+
+
+            }, 3000);
+
+
+        });
+    </script>
+</head>
+<body>
+    <h3>슬라이드 애니메이션</h3>
+    
+    <section class="topDown">
+        <div><img src="./img/1.jpg" alt="1"></div>
+        <div><img src="./img/2.jpg" alt="2"></div>
+        <div><img src="./img/3.jpg" alt="3"></div>
+    </section>
+
+    <section class="leftRight">
+        <div><img src="./img/1.jpg" alt="1"></div>
+        <div><img src="./img/2.jpg" alt="2"></div>
+        <div><img src="./img/3.jpg" alt="3"></div>
+    </section>
+</body>
+</html>

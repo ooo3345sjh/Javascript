@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2_jQuery 효과함수</title>
+    <!--
+        날짜 : 2022/10/18
+        이름 : 서정현
+        내용 : jQuery 효과함수 실습하기
+    -->
+    <style>
+         section {
+            position: relative;
+            width: 100%;
+            height: 220px;
+         }
+
+         section > article {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background: orange;
+         }
+
+         .box1 {left: 0px; top: 10px;}
+         .box2 {left: 210px; top: 10px;}
+         .box3 {left: 420px; top: 10px;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+
+            $('button:eq(0)').click(function(){         
+                $('.box1').show(1000);
+            });
+            $('button:eq(1)').click(function(){         
+                $('.box1').hide(1000);
+            });
+            $('button:eq(2)').click(function(){         
+                $('.box2').fadeIn(1000);
+            });
+            $('button:eq(3)').click(function(){         
+                $('.box2').fadeOut(1000);
+            });
+            $('button:eq(4)').click(function(){         
+                $('.box3').slideUp(1000);
+                
+            });
+            $('button:eq(5)').click(function(){         
+                $('.box3').slideDown(1000);
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>jQuery 효과함수</h3>
+    <div>
+        <button>show</button>
+        <button>hide</button>
+        <button>fadeIn</button>
+        <button>fadeOut</button>
+        <button>slideUp</button>
+        <button>slideDown</button>
+    </div>
+
+    <section>
+        <article class="box box1"></article>
+        <article class="box box2"></article>
+        <article class="box box3"></article>
+    </section>
+</body>
+</html>
