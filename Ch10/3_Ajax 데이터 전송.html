@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_Ajax 데이터 전송</title>
+    <!--
+        날짜 : 2022/10/19
+        이름 : 서정현
+        내용 : Ajax 데이터 전송 실습하기
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   <script>
+        $(function(){
+            $('input[type=submit]').click(function(e){
+                e.preventDefault();
+
+                // 입력한 데이터 가져오기
+                let uid = $('input[name=uid]').val();
+                let name = $('input[name=name]').val();
+                let hp = $('input[name=hp]').val();
+                let age = $('input[name=age]').val();
+
+                // 전송 데이터 생성(JSON)
+                let jsonData = {
+                    "uid":uid,
+                    "name":name,
+                    "hp":hp,
+                    "age":age,
+                };
+                // 데이터 전송(AJAX)
+                $.ajax({
+                    url:'https://www.naver.com',
+                    type:'get',
+                    data: jsonData,
+                    dataType:'json',
+                    success: function(data){
+                        console.log(data);
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>Ajax 데이터 전송</h3>
+    
+    <form action="#">
+        <input type="text" name="uid" placeholder="아이디 입력"><br/>
+        <input type="text" name="name" placeholder="이름 입력"><br/>
+        <input type="text" name="hp" placeholder="휴대폰 입력"><br/>
+        <input type="text" name="age" placeholder="나이 입력"><br/>
+        <input type="submit" value="전송하기"><br/>
+    </form>
+    
+</body>
+</html>

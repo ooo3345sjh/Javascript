@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2_Ajax 데이터 처리</title>
+    <!--
+        날짜 : 2022/10/19
+        이름 : 서정현
+        내용 : XML 데이터 처리 실습하기
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                $.ajax({
+                    url:'http://chhak.or.kr/data/users.xml',
+                    type:'get',
+                    dataType:'xml',
+                    success:function(data){
+                        console.log(data);
+
+                        // 데이터 출력
+                        let users = $(data).find('user');
+
+                        users.each(function(){
+                            let tags = `<tr>
+                                            <td>${$(this).find('uid').text()}</td>                
+                                            <td>${$(this).find('name').text()}</td>                
+                                            <td>${$(this).find('hp').text()}</td>                
+                                            <td>${$(this).find('age').text()}</td>                
+                                        </tr>`;
+                            $('table').append(tags);
+                        });
+
+                    }
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+    <h3>XML 데이터 처리</h3>
+    <button>데이터 요청</button>
+
+    <table border="1">
+        <tr>
+            <td>아이디</td>
+            <td>이름</td>
+            <td>휴대폰</td>
+            <td>나이</td>
+        </tr>
+    </table>
+</body>
+</html>

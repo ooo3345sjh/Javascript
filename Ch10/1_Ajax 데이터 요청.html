@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1_Ajax 데이터 요청</title>
+    <!--
+        날짜 : 2022/10/19
+        이름 : 서정현
+        내용 : Ajax 데이터 요청 실습하기
+
+        AJAX(Asynchronous Javascript And XML)
+         - JSON 또는 XML 형태의 데이터를 비동기적으로 전송하기 위한 통신기술
+         - 서버로부터 데이터를 요청하고 클라이언트에서 화면처리를 수행
+         - 서버로부터 데이터를 요청하는 것을 API라고 한다.
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            
+            $('button').click(function(){
+                // 데이터 요청
+                $.ajax({
+                    url:'http://chhak.or.kr/data/user.json',
+                    type:'get',
+                    dataType:'json',
+                    success: function(data){
+                        console.log(data);
+                        // 데이터 출력
+                        $('p > span:eq(0)').text(data.uid);
+                        $('p > span:eq(1)').text(data.name);
+                        $('p > span:eq(2)').text(data.hp);
+                        $('p > span:eq(3)').text(data.age);
+                    },
+                    error: function(){
+                        console.log('error!');
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <h3>Ajax 데이터 요청</h3>
+
+    <button>데이터 요청</button>
+    <p>
+        아이디 :  <span></span><br>
+        이름 :  <span></span><br>
+        휴대폰 :  <span></span><br>
+        나이 :  <span></span><br>
+    </p>
+    
+</body>
+</html>
