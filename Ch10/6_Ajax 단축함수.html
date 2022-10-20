@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6_Ajax 단축함수</title>
+    <!--
+        날짜 : 2022/10/20
+        이름 : 서정현
+        내용 : Ajax 단축함수 실습하기
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('button:eq(0)').click(function(){
+                let jsonData = {"uid":"a101", "name":"홍길동"};
+                $.get('http://chhak.or.kr/data/user.json', jsonData, function(data){
+
+                    $('p:eq(0) > span:eq(0)').text(data.uid);
+                    $('p:eq(0) > span:eq(1)').text(data.name);
+                    $('p:eq(0) > span:eq(2)').text(data.hp);
+                    $('p:eq(0) > span:eq(3)').text(data.age);
+                });    
+            });
+
+            $('button:eq(1)').click(function(){
+                let jsonData = {"uid":"a101", "name":"홍길동"};
+
+                $.post('http://chhak.or.kr/data/user.json', jsonData, function(data){
+                    $('p:eq(1) > span:eq(0)').text(data.uid);
+                    $('p:eq(1) > span:eq(1)').text(data.name);
+                    $('p:eq(1) > span:eq(2)').text(data.hp);
+                    $('p:eq(1) > span:eq(3)').text(data.age);
+                });
+            });
+            
+            $('button:eq(2)').click(function(){
+                $.getJSON('http://chhak.or.kr/data/user.json', function(data){
+                    $('p:eq(2) > span:eq(0)').text(data.uid);
+                    $('p:eq(2) > span:eq(1)').text(data.name);
+                    $('p:eq(2) > span:eq(2)').text(data.hp);
+                    $('p:eq(2) > span:eq(3)').text(data.age);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>Ajax 단축함수</h3>
+
+    <button>데이터 요청하기</button>
+    <p>
+        아이디 : <span></span><br/>
+        이름 : <span></span><br/>
+        휴대폰 : <span></span><br/>
+        나이 : <span></span><br/>
+    </p>
+
+    <button>데이터 요청하기</button>
+    <p>
+        아이디 : <span></span><br/>
+        이름 : <span></span><br/>
+        휴대폰 : <span></span><br/>
+        나이 : <span></span><br/>
+    </p>
+
+    <button>데이터 요청하기</button>
+    <p>
+        아이디 : <span></span><br/>
+        이름 : <span></span><br/>
+        휴대폰 : <span></span><br/>
+        나이 : <span></span><br/>
+    </p>
+    
+</body>
+</html>
