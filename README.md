@@ -36,4 +36,17 @@
     - 2_jQuery 이벤트 함수 : jQuery 이벤트 함수 실습하기
     - 3_jQuery 이벤트 객체 : jQuery 이벤트 객체 실습하기
 
+## Ch09.jQuery 애니메이션
+    - 1_jQuery 애니메이션
+    - 2_jQuery 효과함수
+    - 3_슬라이드 애니메이션
+
+## Ch10.jQuery AJAX통신
+    - 1_AJAX 데이터 요청
+    - 2_AJAX 데이터 처리
+    - 3_AJAX 데이터 전송
+    - 4_XML 데이터 요청
+    - 5_XML 데이터 처리
+    - 6_AJAX 단축함수
+
 # [Book 실습예제](https://github.com/ooo3345sjh/Javascript/tree/main/Book/MyStudy)
